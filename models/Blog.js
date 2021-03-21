@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Blog extends Model {
@@ -28,14 +28,32 @@ Blog.init(
                 key: 'id',
             },
         },
-        //   the fields createdAt and updatedAt are automatically added to every model in sequelize. Timestamps are turned on
+        // createdAt: {
+        //     field: 'created_at',
+        //     type: DataTypes.DATE,
+        //     allowNull: false,
+        //     defaultValue: DataTypes.NOW
+        // }
+
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: Sequelize.fn('now'),
+            allowNull: false
+        },
+
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: Sequelize.fn('now'),
+            allowNull: false
+        },
+        
     },
     {
         sequelize,
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'blog',
     }
 );
 
