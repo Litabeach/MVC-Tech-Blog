@@ -1,0 +1,132 @@
+/* Full styling */
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover; 
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    font-family: 'Times New Roman';
+    color:antiquewhite;
+}
+
+nav {
+
+    background-image: linear-gradient(to bottom right, rgb(8, 38, 19));
+    margin: 0;
+    width: 100%;
+    height: 150px;
+    
+}
+
+.navLink {
+ color: white;
+ text-decoration: none;
+}
+
+.navLink:visited {
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 0 auto;
+}
+
+.links {
+    padding: 30px;
+    font-size: 25px;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    background-image: linear-gradient(to bottom left, rgb(49, 25, 25), rgba(94, 39, 39, 0.743));
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+/* homepage styling */
+
+.home {
+margin: 0 auto;
+margin-top: 100px;
+  width: 50%;
+  padding: 10px;
+  background-color: rgb(250, 244, 219);
+  border-radius: 25px;
+  border: 5px solid rgb(8, 38, 19);
+   
+}
+
+.post {
+    margin: 0 auto;
+    margin-top: 20px;
+      width: 50%;
+      padding: 10px;
+      background-color: rgb(250, 244, 219);
+      border-radius: 25px;
+      border: 5px solid rgb(8, 38, 19);
+    }
+
+.blogLink {
+    text-decoration: none;
+    color: rgb(8, 38, 19);
+}
+
+.family {
+    margin-bottom: 100px;
+}
+
+
+
+.signIn {
+    margin: 0 auto;
+    margin-top: 100px;
+      width: 40%;
+      padding: 10px;
+      background-color: rgb(250, 244, 219);
+      border-radius: 25px;
+      border: 5px solid  rgb(8, 38, 19);
+}
+
+.login {
+    font-size: 20px;
+}
+
+.form-input{
+    width: 50%;
+    height: 25px;
+}
+
+.loginBtn {
+    background-color: rgb(97, 134, 104);
+    color: white;
+    height: 40px;
+    width: 100px;
+    font-family: 'Times New Roman';
+    display: block;
+    margin: 0 auto;
+}
+
+.signupLink {
+    margin: 0 auto;
+    margin-top: 20px;
+      width: 40%;
+      padding: 10px;
+      background-color: rgb(250, 244, 219);
+      border-radius: 25px;
+      border: 5px solid rgb(8, 38, 19);
+      text-align: center;
+}
+
+
+.form-input{
+    width: 90%;
+    height: 25px;
+}
