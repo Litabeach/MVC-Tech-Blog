@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 //show all blog posts at localhost:3001/
 router.get('/', async (req, res) => {
@@ -44,7 +44,7 @@ router.get('/blog/:id', async (req, res) => {
 
     const blog = blogData.get({ plain: true });
 
-    res.render('project', {
+    res.render('dashboard', {
       ...blog,
       logged_in: req.session.logged_in
     });
@@ -53,19 +53,19 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
-
+//login route. If already logged in, redirect to dashboard
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
   res.render('login');
 });
 
-
+//signup route. If already logged in, redirect to dashboard
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
   res.render('signup');
@@ -75,6 +75,13 @@ router.get('/logout', (req, res) => {
   res.render('logout', {
     loggedIn: req.session.logged_in
   });
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 
