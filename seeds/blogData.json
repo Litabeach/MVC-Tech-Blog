@@ -1,0 +1,17 @@
+[
+  {
+    "title": "MY first post",
+    "description": "It's pretty intense.",
+    "createdAt": "02/12/2021"
+  },
+  {
+    "title": "Another post",
+    "description": "I don't think you're ready for this jelly!",
+    "createdAt": "03/1/2021"
+  },
+  {
+    "title": "Postman",
+    "description": "Is my new nickname.",
+    "createdAt": "03/15/2021"
+  }
+]

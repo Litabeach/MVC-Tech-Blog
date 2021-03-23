@@ -1,15 +1,14 @@
-
 const blogFormHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector('#post-name').value.trim();
+    const title = document.querySelector('#newblogTitle').value.trim();
 
-    const description = document.querySelector('#post-desc').value.trim();
+    const description = document.querySelector('#blogBody').value.trim();
 
     const user_id = "user"
   
     if (title && description) {
-      const response = await fetch('/dashboard', {
+      const response = await fetch('/dash/newblog', {
         method: 'POST',
         body: JSON.stringify({ 
             title, description, user_id }),
@@ -17,7 +16,7 @@ const blogFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace("/");
+        document.location.replace("/dashboard");
       } else {
         alert(response.statusText);
       }
