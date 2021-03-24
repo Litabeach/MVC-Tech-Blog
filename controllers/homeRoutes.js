@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const cookie = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 // const withAuth = require('../utils/auth');
 
-//show all blog posts at localhost:3001/
+//show all blog posts
 router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
@@ -107,5 +107,19 @@ router.get('/logout', (req, res) => {
   }
 });
 
+
+//posting a comment route
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
