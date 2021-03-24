@@ -3,15 +3,23 @@
    <div class="card-header">{{blog.title}}  <p>Created by {{user.name}} on {{format_date blog.createdAt}}</p></div>
   <div class="card-body">
     <p class="card-text">{{blog.description}}.</p>
-    <div id="dynamicCheck">
-   <input type="button" value="Add a comment" onclick="createNewElement();"/>
+    {{!-- <div id="dynamicCheck">
+   <input type="button" value="Add a comment" onclick="createNewElement();"/> --}}
+      <div class="form-group">
+        <label for="post-desc">Comment:</label>
+        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" id ="newButton">Submit</button>
+      </div>
+   <
 </div>
 
-<div id="newElementId">
-</div>
+{{!-- <div id="newElementId">
+</div> --}}
 
   </div>
 </div>
 {{/each}}  
 
- <script src="/js/comment.js"></script>
+ <script src="/js/newcomment.js"></script>

@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const cookie = require('express').Router();
-const { Blog, User, Comment } = require('../models');
+const { Blog, User } = require('../models');
+const Comment  = require('../models/Comment');
+const withAuth = require('../utils/auth')
+
 // const withAuth = require('../utils/auth');
 
 //show all blog posts
