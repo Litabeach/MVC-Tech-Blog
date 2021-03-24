@@ -3,6 +3,7 @@ const newFormHandler = async (event) => {
 
   const title = document.querySelector('#post-name').value.trim();
   const description = document.querySelector('#post-desc').value.trim();
+  console.log("created new post", title, description)
 
   if (title && description) {
     const response = await fetch(`/api/blogs`, {
@@ -20,7 +21,7 @@ const newFormHandler = async (event) => {
     }
   }
 };
-
+console.log("loaded newpost.js")
 document
-  .querySelector('.new-post')
-  .addEventListener('submit', newFormHandler);
+  .querySelector('.submitPost')
+  .addEventListener('click', newFormHandler);
