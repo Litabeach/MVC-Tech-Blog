@@ -50,6 +50,17 @@ router.get("/newpost", withAuth, async (req, res) => {
   });
 })
 
+//render update post page
+router.get("/updatepost:id", withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  res.render('updatepost:id', {
+    loggedIn: req.session.logged_in
+  });
+})
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
