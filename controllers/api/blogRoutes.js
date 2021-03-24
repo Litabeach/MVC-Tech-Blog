@@ -18,12 +18,12 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/', withAuth, async (req, res) => {
   try {
-    const newBlog = await Blog.update({
+    const updateBlog = await Blog.update({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newBlog);
+    res.status(200).json(updateBlog);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -31,7 +31,7 @@ router.put('/', withAuth, async (req, res) => {
 
 
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/', withAuth, async (req, res) => {
     try {
       const projectData = await Project.destroy({
         where: {

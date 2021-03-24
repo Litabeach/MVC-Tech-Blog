@@ -21,6 +21,7 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
+      const loggedIn = req.session.logged_in;
   
      
       if (!userData) {
@@ -39,22 +40,24 @@ router.post('/login', async (req, res) => {
           .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
-  console.log(userData)
+
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
         
         
         res
-        .cookie('loggedin', req.session.logged_in,
-        {
-          maxAge: 1000,
-          httpOnly: true
-        })
-        
         .json({ user: userData, message: 'You are now logged in!' });
       });
-  
+
+      res
+      .cookie('loggedin', loggedIn,
+      {
+        maxAge: 1000,
+        httpOnly: true
+      })
+      console.log(res.cookie)
+
     } catch (err) {
       res.status(400).json(err);
     }

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const cookie = require('express').Router();
 const { Blog, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
@@ -14,11 +15,9 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    // console.log(blogData)
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-    console.log(blogs)
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -53,12 +52,36 @@ router.get('/blogs/:id', async (req, res) => {
   }
 });
 
+// app.get('/api/themeupdate/:newColor', async (req, res) => {
+
+//   const newColor = req.params.newColor;
+
+//   res
+//     .status(200)
+//     .cookie('themeColor', newColor,
+//       {
+//         maxAge: 90000,
+//         httpOnly: true
+//       })
+//     .json({ message: 'Theme Changed' })
+// });
+
 //login route. If already logged in, redirect to dashboard
 router.get('/login', (req, res) => {
+  console.log('Cookies: ', req.cookies)
+  
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
+  res
+  .cookie('connect.sid', 
+  {
+    maxAge: 100000,
+    httpOnly: true
+  })
+
+  console.log('Cookies after creating loggedIn cookie: ', req.cookies)
   res.render('login');
 });
 
