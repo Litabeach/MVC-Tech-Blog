@@ -39,40 +39,6 @@ router.get('/', withAuth, async (req, res) => {
     }
 })
 
-//pull each blog user has previously written
-router.get("dashboard/:id", async (req, res) => {
-    try {
-        const blogData = await Blog.findOne({
-            where: {
-                id: req.params.id,
-            },
-            attributes: ["id", "description", "title", "createdAt"],
-            include: [
-            { model: User, attributes: ["name"] },
-            ]
-        })
-        
-        console.log(blogData)
-        if (!blogData) {
-            res.status(404).json({
-                message: "No post found with this id"
-            });
-            return;
-        }
-
-        const blog = blogData.get({ plain: true });
-        console.log(blog)
-
-        res.render('dashboard', {
-            blog,
-            loggedIn: req.session.logged_in
-        })
-
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
-
 //render new post page
 router.get("/newpost", withAuth, async (req, res) => {
   if (!req.session.logged_in) {
