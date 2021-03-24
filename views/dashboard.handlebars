@@ -1,8 +1,6 @@
-<a href="/dashboard/newpost"><button class ="newpost-button">Create New Post</button></a>
-
   {{#if blogs.length}}
   <div class="col-md-6 post-list card text-white bg-dark mb-3">
-    <h3>My Posts:</h3>
+    <h3 class ="posts">My Posts:</h3>
 
     {{#each blogs as |blog|}}
     <div class="row mb-2">
@@ -10,7 +8,7 @@
         <h4>{{blog.title}}</h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-secondary" data-id="{{blog.id}}"> <a href="blogs/{{blog.id}}">UPDATE</a></button>
+        <a href="/blogs/{{blog.id}}"><button class="btn btn-sm btn-secondary" data-id="{{blog.id}}">UPDATE</button></a>
         <button class="btn btn-sm btn-danger delete" data-id="{{blog.id}}">DELETE</button>
       
       </div>
@@ -19,5 +17,10 @@
   </div>
   {{/if}}
 </div>
+
+<div class ="new-post">
+<a href="/dashboard/newpost"><button class ="newpost-button">Create New Post</button></a>
+</div>
+
 
 <script src="/js/deletepost.js"></script>
