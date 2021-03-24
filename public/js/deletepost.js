@@ -3,7 +3,7 @@ const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/blogs${id}`, {
+      const response = await fetch(`/blogs/${id}`, {
         method: 'DELETE',
       });
   
@@ -14,8 +14,8 @@ const delButtonHandler = async (event) => {
       }
     }
   };
-  
+  console.log("loaded deletepost.js")
   document
-    .querySelector('post-list')
+    .querySelector('.post-list')
     .addEventListener('click', delButtonHandler);
   

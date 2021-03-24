@@ -1,26 +1,10 @@
-{{!-- {{#each Users}}
-
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
-{{/each}} --}}
-
-{{!-- 
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div> --}}
 <div class="post">
 <a href="/dashboard/newpost"><button>Create New Post</button></a>
 </div>
 
   {{#if blogs.length}}
   <div class="col-md-6 post-list">
-    <h3>Current Posts:</h3>
+    <h3>My Posts:</h3>
 
     {{#each blogs as |blog|}}
     <div class="row mb-2">
@@ -36,4 +20,4 @@
   {{/if}}
 </div>
 
-<script src="js/dashboard.js"></script>
+<script src="/js/deletepost.js"></script>
