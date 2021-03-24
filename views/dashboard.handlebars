@@ -1,18 +1,18 @@
-<div class="post">
-<a href="/dashboard/newpost"><button>Create New Post</button></a>
-</div>
+<a href="/dashboard/newpost"><button class ="newpost-button">Create New Post</button></a>
 
   {{#if blogs.length}}
-  <div class="col-md-6 post-list">
+  <div class="col-md-6 post-list card text-white bg-dark mb-3">
     <h3>My Posts:</h3>
 
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="blogs/{{blog.id}}">{{blog.title}}</a></h4>
+        <h4>{{blog.title}}</h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="btn btn-sm btn-secondary" data-id="{{blog.id}}"> <a href="blogs/{{blog.id}}">UPDATE</a></button>
+        <button class="btn btn-sm btn-danger delete" data-id="{{blog.id}}">DELETE</button>
+      
       </div>
     </div>
     {{/each}}

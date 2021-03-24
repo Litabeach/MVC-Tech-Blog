@@ -8,14 +8,38 @@ body {
     color:antiquewhite;
 }
 
-nav {
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
 
-    background-image: linear-gradient(to bottom right, rgb(8, 38, 19));
+.nav {
+    background-color: rgb(31, 31, 41);
     margin: 0;
     width: 100%;
-    height: 150px;
+    color: white;
     
 }
+
+.card {
+    width: 50%;
+    margin-left:25%;
+}
+
+.newpost-button {
+        background-color: #5b4caf; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 50%;
+        margin-left: 25%;
+}
+
 
 .navLink {
  color: white;

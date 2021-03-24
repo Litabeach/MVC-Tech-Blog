@@ -1,12 +1,22 @@
-<div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{description}}</p>
-  <p>Created on {{format_date createdAt}}</p>
-  <p>Updated on {{format_date updatedAt}}</p>
-   <a href="/dashboard/updatepost/"><button>Update Post</button></a>
-  </p>
-</div>
+<div class="row mt-4 card text-white bg-dark mb-3">
+  <div class="col-md-6">
+    <h3>Update Post:</h3>
 
+    <div class="form new-post">
+      <div class="form-group">
+        <label for="post-name">Title: </label>
+        <input class="form-input" type="text" id="post-name" name="post-name" value="{{title}}"></input>
+      </div>
+      <div class="form-group">
+        <label for="post-desc">Content: </label>
+        <textarea class="form-input" id="post-desc" name="post-desc" rows="5">{{description}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary submitPost">Update</button>
+      </div>
+      <p>Created on {{format_date createdAt}}</p>
+      <p>Updated on {{format_date updatedAt}}</p>
+    </div>
+  </div>
 
-
-<script src="/js/updatepost.js"></script>
+  <script src="/js/updatepost.js"></script>
