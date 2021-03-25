@@ -4,18 +4,18 @@
     .addEventListener('click', function(event){
       event.preventDefault();
     
-      const comment = document.querySelector('#comment-desc').value.trim();
+      const text = document.querySelector('#comment-desc').value.trim();
       
     
-      if (comment) {
-        const response = fetch(`api/blogs/`, {
+      if (text) {
+        const response = fetch(`/api/blogs`, {
           method: 'POST',
-          body: JSON.stringify({ comment }),
+          body: JSON.stringify({ text }),
           headers: {
             'Content-Type': 'application/json',
           },
         });
-        // console.log(response)
+        console.log(response)
     
         if (response.ok) {
           document.location.replace('/');
@@ -25,6 +25,7 @@
       }
     });
 
+    //remove hide from comments form when they click the "add comment" button
     document
     .querySelector('#add-comment')
     .addEventListener('click', function(event){

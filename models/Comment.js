@@ -13,9 +13,6 @@ Comment.init({
     text: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            len: [1]
-        }
     },
 
     createdAt: {

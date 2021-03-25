@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
 const Comment = require('../models/Comment');
-const withAuth = require('../utils/auth')
-
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //show all blog posts
 router.get('/', async (req, res) => {
@@ -14,16 +12,20 @@ router.get('/', async (req, res) => {
         {
           model: User,
           attributes: ['name'],
+          model: Comment,
+          attributes: ['text', 'blog_id', 'createdAt'],
         },
       ],
     });
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
       blogs,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -54,36 +56,14 @@ router.get('/blogs/:id', async (req, res) => {
   }
 });
 
-// app.get('/api/themeupdate/:newColor', async (req, res) => {
-
-//   const newColor = req.params.newColor;
-
-//   res
-//     .status(200)
-//     .cookie('themeColor', newColor,
-//       {
-//         maxAge: 90000,
-//         httpOnly: true
-//       })
-//     .json({ message: 'Theme Changed' })
-// });
 
 //login route. If already logged in, redirect to dashboard
 router.get('/login', (req, res) => {
-  console.log('Cookies: ', req.cookies)
 
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
-  res
-    .cookie('connect.sid',
-      {
-        maxAge: 100000,
-        httpOnly: true
-      })
-
-  console.log('Cookies after creating loggedIn cookie: ', req.cookies)
   res.render('login');
 });
 
@@ -109,8 +89,8 @@ router.get('/logout', (req, res) => {
   }
 });
 
-// //posting a comment route
-// router.post('/', withAuth, async (req, res) => {
+// // //getting comment route
+// router.get('/', withAuth, async (req, res) => {
 // try {
 //   const newComment = await Comment.create(
 //     {
