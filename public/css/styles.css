@@ -13,11 +13,11 @@ body {
    font-weight: bold;
 }
 
-/* input[type=text] {
+.comment-textarea{
     width: 100%;
-    padding: 12px 20px;
-    box-sizing: border-box;
-  } */
+    height: 40px;
+    background-color: rgb(73, 125, 160);
+}
 
 .nav {
     background-color: rgb(52,58,64);

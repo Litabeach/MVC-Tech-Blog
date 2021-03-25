@@ -21,9 +21,8 @@ document
       });
 
       if (response.ok) {
-        // document.location.replace('/dashboard');
       } else {
-        document.location.replace('/dashboard');
+        document.location.replace('../dashboard');
       }
     }
   }
