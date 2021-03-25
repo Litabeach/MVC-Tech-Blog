@@ -53,41 +53,19 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 
-// router.put('/:id', withAuth ,(req, res) => {
-//   // Calls the update method on the Book model
-//   Blog.update(
-//     {
-//       // All the fields you can update and the data attached to the request body.
-//       title: req.body.post_name,
-//       description: req.body.post_desc,
-//     },
-//     {
-//       // Gets the books based on the isbn given in the request parameters
-//       where: {
-//         id: req.params.id,
-//       },
-//     }
-//   )
-//     .then((updatedBook) => {
-//       // Sends the updated book as a json response
-//       res.json(updatedBook);
-//     })
-//     .catch((err) => res.json(err));
-// });
-
-
-
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-      const projectData = await Project.destroy({
+      const blogData = await Blog.destroy(
+        {
         where: {
           id: req.params.id,
-          user_id: req.session.user_id,
+          // user_id: req.session.user_id,
         },
-      });
+      }
+      );
   
-      if (!projectData) {
+      if (!blogData) {
         res.status(404).json({ message: 'No project found with this id!' });
         return;
       }

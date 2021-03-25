@@ -20,7 +20,6 @@ const newFormHandler = async (event) => {
     }
   }
 };
-console.log("loaded newpost.js")
 document
   .querySelector('.submitPost')
   .addEventListener('click', newFormHandler);
