@@ -17,7 +17,7 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-
+//create a new blog post 
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
@@ -31,7 +31,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-//posting a comment route
+//posting a comment 
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create(
