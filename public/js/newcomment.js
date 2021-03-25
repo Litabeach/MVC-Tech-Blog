@@ -1,6 +1,6 @@
 
   document
-    .querySelector('#newButton')
+    .querySelector('#submitButton')
     .addEventListener('click', function(event){
       event.preventDefault();
     

@@ -8,18 +8,19 @@
   <div class="card-body">
     <p class="card-text">{{blog.description}}.</p>
     <div>
-      <button id="add-comment">Add a comment</button>
+      <button id="add-comment" class="btn btn-sm btn-secondary">Add a comment</button>
       <div id="comment-form" class="hide">
         <label for="post-comment">Comment:</label>
         <textarea class="comment-textarea" id="comment-desc" name="comment-desc"></textarea>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary" id="newButton">Submit</button>
+          <button type="submit" class="btn btn-secondary" id="submitButton">Submit</button>
         </div>
       </div>
     </div>
-    /
+    
+    {{!-- comments will print here --}}
     <p>{{comment.text}}</p>
-    <p>{{user.name}} {{comment.createdAt}}</p>
+    {{!-- <p>{{user.name}} {{comment.createdAt}}</p> --}}
 
   </div>
 </div>

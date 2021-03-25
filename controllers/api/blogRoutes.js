@@ -42,9 +42,8 @@ router.post('/', withAuth, async (req, res) => {
       },
       {
         where: {
-          id: req.params.id,
           blog_id: req.params.blog_id,
-          user_id: req.params.user_id,
+          // user_id: req.params.user_id,
         }
       }
     );

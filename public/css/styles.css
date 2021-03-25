@@ -17,10 +17,11 @@ body {
     display:none;
 }
 
+
 .comment-textarea{
     width: 100%;
     height: 40px;
-    background-color: rgb(73, 125, 160);
+    background-color: rgb(155, 187, 207);
 }
 
 .nav {
@@ -45,7 +46,7 @@ body {
 }
 
 .card-header{
-    height:50%;
+    height:80px;
 }
 
 .new-post{
@@ -77,10 +78,10 @@ textarea {
     height: 80px;
 }
 
-.comment{
+/* .comment{
     background-color: rgb(73, 125, 160);
 
-}
+} */
 
 h1 {
     text-align: center;
