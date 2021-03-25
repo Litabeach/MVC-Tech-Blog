@@ -3,7 +3,7 @@
 ## Description 
 
 A CMS-style blog site where developers can publish their blog posts and comment on other developers’ posts as well. Utilizes the MVC paradigm as it's architecture, Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. Users must be logged in to access post create, update and delete features. User will automatically be logged out after 10 minutes.<br>
-Check out the app on Heroku:
+Check out the app on Heroku: https://young-temple-65277.herokuapp.com/
 
 
 ## Table of Contents
