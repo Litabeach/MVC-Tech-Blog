@@ -5,7 +5,7 @@ const Comment = require('../models/Comment');
 //show all blog posts with all comments
 router.get('/', async (req, res) => {
   try {
-    // Get all blogs and JOIN with user data
+    // Get all blogs and JOIN with user data and comment data
     const blogData = await Blog.findAll({
       include: [
         {
