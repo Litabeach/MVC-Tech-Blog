@@ -24,3 +24,15 @@
         }
       }
     });
+
+    document
+    .querySelector('#add-comment')
+    .addEventListener('click', function(event){
+      event.preventDefault();
+      function removeHide() {
+        var element = document.getElementById("comment-form");
+        element.classList.remove("hide");
+      }
+      removeHide();
+    });
+    
