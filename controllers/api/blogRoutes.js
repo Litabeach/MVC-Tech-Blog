@@ -38,12 +38,12 @@ router.post('/', withAuth, async (req, res) => {
       {
         ...req.body,
         user_id: req.session.user_id,
-  
+        blog_id: req.params.blog_id  
       },
       {
         where: {
           blog_id: req.params.blog_id,
-          // user_id: req.params.user_id,
+          // user_id: req.session.user_id,
         }
       }
     );
