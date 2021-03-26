@@ -1,4 +1,6 @@
 
+{{#if logged_in}}
+
 {{#each blogs as |blog| }}
 <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
   <div class="card-header"><b>
@@ -35,8 +37,21 @@
 {{/each}}
 {{/each}}
 
-
-
+{{else}}
+{{#each blogs as |blog| }}
+<div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+  <div class="card-header"><b>
+      <h3>{{blog.title}} 
+      </h3>
+    </b>
+    <p>Created by {{user.name}} on {{format_date blog.createdAt}}</p>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{blog.description}}.</p>
+    </div>
+</div>
+{{/each}}
+{{/if}}
 
 
 <script src="/js/newcomment.js"></script>
