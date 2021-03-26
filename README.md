@@ -31,8 +31,9 @@ Visit the homepage to view all blog posts. Sign up and log in to create, update 
 
 ## Credits
 
-Nathan Perfetti
-Michell Brito
+Nathan Perfetti <br>
+Blake Dragos <br>
+Michell Brito 
 
 
 ## License

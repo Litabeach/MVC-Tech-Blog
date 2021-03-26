@@ -24,6 +24,7 @@
         }
       }
     });
+    
 
     //remove hide from comments form when they click the "add comment" button
     document
