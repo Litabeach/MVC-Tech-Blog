@@ -24,18 +24,16 @@
 
 {{#each comments as |comment|}}
 <div class="comment">
-<h4> Comments:</h4>
+{{!-- <h4> Comments:</h4> --}}
 <p>
-   
-
-   "{{text}}" - {{blog.user.name}} on {{format_date comment.createdAt}}
-
+   "{{text}}" on {{format_date comment.createdAt}}
 </p>
 </div>
 
 </div>
 {{/each}}
 {{/each}}
+
 
 
 
