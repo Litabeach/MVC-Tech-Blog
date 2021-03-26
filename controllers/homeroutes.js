@@ -14,25 +14,26 @@ router.get('/', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['text', 'blog_id', 'createdAt'],
+          attributes: ['text', 'user_id', 'createdAt'],
         },
       ],
     });
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-    // const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const comments = blogData.map((comment) => comment.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
       blogs,
-      // comments,
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 //get blog post by ID
 router.get('/blogs/:id', async (req, res) => {
@@ -89,30 +90,6 @@ router.get('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-// // //getting comment route
-// router.get('/', withAuth, async (req, res) => {
-// try {
-//   const newComment = await Comment.create(
-//     {
-//       ...req.body,
-//       user_id: req.session.user_id,
-
-//     },
-//     {
-//       where: {
-//         id: req.params.id,
-//         blog_id: req.params.blog_id,
-//         user_id: req.params.user_id,
-//       }
-//     }
-//   );
-
-//   res.status(200).json(newComment);
-// } catch (err) {
-//   res.status(400).json(err);
-// }
-// });
 
 
     module.exports = router;

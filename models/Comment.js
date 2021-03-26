@@ -21,6 +21,12 @@ Comment.init({
         allowNull: false
     },
 
+    updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.fn('now'),
+        allowNull: true
+    },
+
    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -29,14 +35,16 @@ Comment.init({
             key: 'id'
         }
     },
-    // blog_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     references: {
-    //         model: 'blog',
-    //         key: 'id'
-    //     }
-    // }
+    
+    blog_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'blog',
+            key: 'id'
+        }
+    }
+
 },
  {
     sequelize,

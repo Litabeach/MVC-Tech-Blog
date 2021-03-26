@@ -78,10 +78,12 @@ textarea {
     height: 80px;
 }
 
-/* .comment{
-    background-color: rgb(73, 125, 160);
+.comment{
+    background-color: rgb(155, 187, 207);
+    margin-left: 25%;
+    margin-right: 25%;
 
-} */
+}
 
 h1 {
     text-align: center;

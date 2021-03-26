@@ -5,19 +5,19 @@
       event.preventDefault();
     
       const text = document.querySelector('#comment-desc').value.trim();
-      
+      const blog_id = document.querySelector('#comment-desc').getAttribute("data-id");
     
       if (text) {
-        const response = fetch(`/api/blogs`, {
+        const response = fetch(`/api/blogs/comment`, {
           method: 'POST',
-          body: JSON.stringify({ text }),
+          body: JSON.stringify({ text: text, blog_id: blog_id }),
           headers: {
             'Content-Type': 'application/json',
           },
         });
         console.log(response)
     
-        if (response.ok) {
+        if (response) {
           document.location.replace('/');
         } else {
           alert('Failed to create a new comment');

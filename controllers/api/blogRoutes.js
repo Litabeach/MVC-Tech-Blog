@@ -18,7 +18,7 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 //create a new blog post 
-router.post('/', withAuth, async (req, res) => {
+router.post('/blog', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
       ...req.body,
@@ -32,20 +32,21 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 //posting a comment 
-router.post('/', withAuth, async (req, res) => {
+router.post('/comment', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create(
       {
-        ...req.body,
+        // ...req.body,
+        text: req.body.text,
         user_id: req.session.user_id,
-        blog_id: req.params.blog_id  
+        blog_id: req.body.blog_id  
       },
-      {
-        where: {
-          blog_id: req.params.blog_id,
-          // user_id: req.session.user_id,
-        }
-      }
+      // {
+      //   where: {
+      //     // blog_id: req.params.blog_id,
+      //     // user_id: req.session.user_id,
+      //   }
+      // }
     );
   
     res.status(200).json(newComment);
